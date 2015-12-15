@@ -1,0 +1,181 @@
+//External libraries
+@import (reference) "lib/bootstrap";
+@import "lib/bootstrap-popover-x.less";
+
+//Core variables and mixins
+@import (reference) "lib/mixins";
+@import (reference) "lib/variables";
+
+//Core CSS
+@import "lib/alerts";
+@import "lib/buttons";
+@import "lib/dropdowns";
+@import "lib/font";
+@import "lib/forms";
+@import "lib/gradients";
+@import "lib/graphics";
+@import "lib/hotel-images";
+@import "lib/icons";
+@import "lib/images";
+@import "lib/lists";
+@import "lib/modal";
+@import "lib/pagination";
+@import "lib/ribbons";
+@import "lib/tables";
+
+//Modules
+@import "modules/navigation";
+@import "modules/module-accordion";
+@import "modules/module-calendar";
+@import "modules/module-card";
+@import "modules/module-loading";
+@import "modules/module-map";
+@import "modules/module-modal";
+@import "modules/module-pins";
+
+//Layouts
+@import "layouts/layout-compare-hotels";
+@import "layouts/layout-dashboard";
+@import "layouts/layout-hotel-details";
+@import "layouts/layout-hotel-image-list-view";
+@import "layouts/layout-make-reservation";
+@import "layouts/layout-promo";
+@import "layouts/layout-redeem";
+@import "layouts/layout-reserve-hotel";
+@import "layouts/layout-room-rates";
+@import "layouts/layout-slide";
+@import "layouts/layout-special-offers";
+@import "layouts/layout-tile-grid";
+
+
+//DEVELOPMENT STYLES *****REMOVE BEFORE DEPLOY TO PROD
+@import "layouts/poc.less";
+
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+//Increasing the z-index of the google autocomplete box because it will be sitting on top of a modal. Witout this style rule,
+//the container would appear behind the modal.
+.pac-container {
+  z-index: @zIndex-2--pac-container;
+}
+#bw-login {
+  z-index: @zIndex-3--login-modal;
+}
+
+.full-height {
+  height: 100%;
+  body {
+    overflow: hidden;
+  }
+}
+
+body {
+  padding-top: @navbar-height-mobile;
+}
+.has-fixed-footer {
+  padding-bottom: @footer-height;
+}
+.has-results-nav {
+  padding-top: @navbar-height-mobile + @results-navbar-height;
+}
+@media screen and (min-width: @screen-sm) {
+  .has-results-nav {
+    padding-top: @navbar-height-tablet + @results-navbar-height;
+  }
+}
+
+p, div, td, span, li, ol, label {
+  font-weight: 400;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.row.no-pad > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.row.full-width {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-xs-2-5 {
+  .make-xs-column(2.4);
+}
+
+.bw-text-link {
+  font-weight: @font-bold;
+  text-decoration: underline;
+  color: @primary-color;
+}
+.p0-left {
+   padding-left: 0 !important;
+}
+
+@media screen and (min-width: @screen-sm-min) {
+  body {
+    padding-top: @body-margin-top-tablet;
+  }
+}
+
+.close-primary {
+  color: @bw-dark-blue;
+  opacity: 1;
+  font-size: 34px;
+}
+
+.bw-btn-primary, .bw-btn-default, .bw-btn {
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  width: 100%;
+  background-color: @secondary-color;
+  color: @primary-color;
+  font-weight: @font-bold;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.bw-btn-default {
+  background-color: #FFF;
+  border: 1px solid @secondary-color;
+}
+
+.bw-btn-lighter-blue {
+  background-color: @bw-lighter-blue;
+  color: @primary-color;
+}
+
+.u-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.link--faded {
+  .link-variant(@bw-medium-gray);
+}
+.link--dark {
+  .link-variant(@bw-dark-blue);
+}
+.link--light {
+  .link-variant(@bw-white);
+}
+.link--accent {
+  text-decoration: underline;
+}

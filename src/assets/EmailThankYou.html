@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>E-mail Thank You</title>
+  <link rel="stylesheet" href="../styles/bootstrap.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body data-view="thank-you-view">
+  <div id="header"></div>
+  <div id="content" class="container-fluid">
+    <div id="thank-you" class="row ribbon">
+      <div class="col-xs-12">
+        <h1>Thank You</h1>
+        <h3>for your order</h3>
+        <div class="btn-container row full-width-buttons">
+          <div class="col-xs-12">
+            <a class="btn bw-btn-accept" href="Redeem.html">Back to Redeem points</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ribbon">
+      <div class="col-xs-12">
+        <p>Your order has been entered into the system.</p>
+        <p>A confirmation e-mail summarizing this transaction has been sent to your registered e-mail address.</p>
+        <p>Your remaining Best Western Rewards® Point balance is: <span class="body-subtitle">952000 Points</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/jquery.js"></script>
+  <script src="../scripts/bootstrap.js"></script>
+  <script src="../scripts/main.js"></script>
+  <script src="../scripts/navigation.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('#header').load('BaseHeader.html');
+    });
+  </script>
+</body>
+</html>

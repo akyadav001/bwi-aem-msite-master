@@ -1,0 +1,62 @@
+
+//Per GUI KIT, modify the styling to remove table cell borders.
+.chart > tbody > tr > td {
+  border-top: none;
+  padding-left: 0;
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+.chart--with-separators {
+  border-top: 1px solid @bw-lighter-blue;
+  border-bottom: 1px solid @bw-lighter-blue;
+}
+
+.responsive-table {
+  @media screen and (max-width: @screen-xs-max) {
+  & table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+  thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr {
+     
+    border-left: 1px solid @bw-light-gray; 
+    border-right: 1px solid @bw-light-gray; 
+    }
+    
+
+	
+	td { 
+		//Behave  like a "row"
+		border: none;
+		border-bottom: 1px solid @bw-light-gray; 
+		position: relative;
+		padding-left: 50% !important; 
+    white-space: normal;
+		text-align:left;
+	}
+	
+	td:before { 
+		//Now like a table header 
+		position: absolute;
+		//Top/left values mimic padding 
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+    text-align:left;
+		font-weight: bold;
+	}
+  td:before {
+    content: attr(data-title);
+  }
+}
+}

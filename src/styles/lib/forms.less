@@ -1,0 +1,249 @@
+.image-checkbox {
+   .bw-icon {
+      cursor: pointer;
+   }
+   svg:after {
+      cursor: pointer;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+   }
+   input[type="checkbox"] {
+      display: none;
+   }
+   &[data-bw-category="available-hotels"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-unchecked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="available-hotels"] input[type="checkbox"]:checked + label {
+      .bw-icon-checked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="tripadvisor"] input[type="checkbox"]:not(:checked) + label {
+      svg {
+        height: 50px;
+        width: 50px;
+        .circle-2 {
+          display: none;
+        }
+        .cls-6 {
+          fill: #16a850;
+        }
+      }
+   }
+   &[data-bw-category="tripadvisor"] input[type="checkbox"]:checked + label {
+      svg {
+        height: 50px;
+        width: 50px;
+      }
+   }
+   &[data-bw-category="hotel-type-standard"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-unchecked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="hotel-type-standard"] input[type="checkbox"]:checked + label {
+      .bw-icon-checked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="hotel-type-plus"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-unchecked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="hotel-type-plus"] input[type="checkbox"]:checked + label {
+      .bw-icon-checked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="hotel-type-premier"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-unchecked;
+      width: 20px;
+      height: 20px;
+   }
+   &[data-bw-category="hotel-type-premier"] input[type="checkbox"]:checked + label {
+      .bw-icon-checked;
+      width: 20px;
+      height: 20px;
+   }
+     &[data-bw-category="amenity-breakfast"] input[type="checkbox"]:checked + label {
+      .bw-icon-breakfast-selected;
+   }
+     &[data-bw-category="amenity-breakfast"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-breakfast-blue;
+   }
+     &[data-bw-category="amenity-business"] input[type="checkbox"]:checked + label {
+      .bw-icon-business-selected;
+   }
+     &[data-bw-category="amenity-business"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-business-blue;
+   }
+     &[data-bw-category="amenity-dine-in"] input[type="checkbox"]:checked + label {
+      .bw-icon-dine-in-selected;
+   }
+     &[data-bw-category="amenity-dine-in"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-dine-in-blue;
+   }
+    &[data-bw-category="amenity-internet"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-internet-blue;
+   }
+   &[data-bw-category="amenity-internet"] input[type="checkbox"]:checked + label {
+      .bw-icon-internet-selected;
+   }
+   &[data-bw-category="amenity-fitness"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-fitness-blue;
+   }
+     &[data-bw-category="amenity-fitness"] input[type="checkbox"]:checked + label {
+      .bw-icon-fitness-selected;
+   }
+    &[data-bw-category="amenity-pet"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-pet-blue;
+   }
+     &[data-bw-category="amenity-pet"] input[type="checkbox"]:checked + label {
+      .bw-icon-pet-selected;
+   }
+    &[data-bw-category="amenity-non-smoking"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-non-smoking-blue;
+   }
+     &[data-bw-category="amenity-non-smoking"] input[type="checkbox"]:checked + label {
+      .bw-icon-non-smoking-selected;
+   }
+    &[data-bw-category="amenity-oversized"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-oversized-blue;
+   }
+     &[data-bw-category="amenity-oversized"] input[type="checkbox"]:checked + label {
+      .bw-icon-oversized-selected;
+   }
+    &[data-bw-category="amenity-parking"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-parking-blue;
+   }
+     &[data-bw-category="amenity-parking"] input[type="checkbox"]:checked + label {
+      .bw-icon-parking-selected;
+   }
+    &[data-bw-category="amenity-pool"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-pool-blue;
+   }
+     &[data-bw-category="amenity-pool"] input[type="checkbox"]:checked + label {
+      .bw-icon-pool-selected;
+   }
+    &[data-bw-category="amenity-shuttle"] input[type="checkbox"]:not(:checked) + label {
+      .bw-icon-shuttle-blue;
+   }
+     &[data-bw-category="amenity-shuttle"] input[type="checkbox"]:checked + label {
+      .bw-icon-shuttle-selected;
+   }
+}
+.select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url(~'@{icon-file-location}/carrot.png') 97% 50% no-repeat;
+  background-size: 10px;
+}
+.select--light {
+  border-color: @bw-white;
+  color: @bw-white;
+  background: url(~'@{icon-file-location}/whiteCarrot.png') 97% 50% no-repeat;
+}
+.check_box {
+  display: none;  
+}
+
+.check_box + label{
+    background: url('../assets/icons/Unchecked@3x.png') no-repeat;
+    background-size: 16px 16px;
+    display:inline-block;
+    padding: 0 0 0 30px;
+    opacity: 1;
+    top: 0;
+    color: @bw-medium-gray;
+}
+
+.check_box.light + label {
+    background: url('../assets/icons/Unchecked-White@3x.png') no-repeat;
+    background-size: 16px 16px;
+    color: #FFF;
+}
+
+.check_box:checked + label{
+    background: url('../assets/icons/Check-Filled@3x.png') no-repeat;
+    background-size: 16px 16px;
+    display:inline-block;
+    padding: 0 0 0 30px;
+}
+.radio_button {
+  display: none;
+}
+.radio_button + label {
+  svg {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+  }
+  .radio-label-text {
+    display: inline-block;
+    margin: 0px 10px;
+  }
+  .outer-circle {
+    stroke: #df9e02;
+    stroke-width: 4px;
+    fill: none;
+  }
+  .inner-circle {
+    fill: transparent;
+  }
+}
+.radio_button:checked + label {
+  .inner-circle {
+     fill: #df9e02;
+  }
+}
+
+.radio-img:extend(.check_box all) {
+
+}
+
+.input-group-addon--outside {
+  background-color: transparent;
+  border: 0;
+}
+// Utility class to remove the standard browser increase/decrease controls on input fields.
+// Applies to input[type='number']. IE does not have a spinner at this time so we disable
+// chrome/ff only.
+
+.u-no-spinner {
+  -moz-appearance: textfield;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+//TODO: Should we remove the border altogether from legends or abstract that out?
+.form-group-header {
+  margin-top: 20px;
+  border: 0;
+  font-size: 20px;
+  color: @bw-dark-blue;
+}
+.form-group-subheader {
+  border: 0;
+  font-size: 11px;
+  font-weight: @font-bold;
+  color: @bw-light-blue;
+}
+.image-control > input {
+  display: none;
+}
+input {
+  font-size: 16px !important;
+}
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+}

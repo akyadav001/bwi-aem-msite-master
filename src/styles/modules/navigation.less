@@ -1,0 +1,374 @@
+@import (reference) "lib/variables";
+
+.navbar {
+  height: @navbar-height-mobile;
+}
+
+@media screen and (min-width: @screen-sm) {
+  .navbar {
+    height: @navbar-height-tablet;
+  }
+}
+
+.bw-navbar {
+  //Overwrite bootstraps default application of a border on the .navbar-fixed-top
+  border: 0;
+  white-space: nowrap;
+  
+  .nav-left {
+		float: left;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		cursor: pointer;
+		@media screen and (min-width: @screen-sm) {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+
+		.burger {
+			border: 0;
+			background-color: transparent;
+			vertical-align: middle;
+			padding: 5px;
+			margin-left: 5px;
+			@media screen and (min-width: @screen-sm){
+				margin-left: 10px;
+			}
+			margin-top: 7px;
+
+			.burger-bar {
+				display: block;
+				width: 24px;
+				height: 2px;
+				border-radius: 1px;
+				background-color: @primary-color;
+			}
+
+			.burger-bar:not(:first-child) {
+				margin-top: 6px;
+			}
+		}
+	}
+
+	.nav-right {
+		float: right;
+		margin-left: 7px;
+		cursor: pointer;
+	  vertical-align: middle;
+	  padding-top: 12px;
+	  padding-bottom: 10px;
+
+		@media screen and (min-width: @screen-sm){
+			margin-left: 15px;
+			padding-top: 17px;
+		}
+
+		a {
+			font-size: 11px;
+			text-decoration: none;
+			color: @primary-color;
+			white-space: nowrap;
+			padding: 5px;
+			position: relative;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&.icon {
+			margin-top: 5px;
+			padding: 0;
+
+			@media screen and (min-width: @screen-sm) {
+				margin-top: 10px;
+			}
+
+			object {
+				width: 25px;
+				height: 25px;
+				margin-top: 3px;
+			}
+
+			.bw-icon {
+				width: 25px;
+				height: 25px;
+				margin-top: 5px;
+			}
+
+			a.svg:after {
+		    content: "";
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+			}
+		}
+	}
+
+	.bw-icon-filter {
+		margin-top: -5px;
+	}
+
+	.bw-icon {
+		vertical-align: middle;
+	}
+
+	.bw-city-tab{
+		height: @results-navbar-height;
+		background-color: @bw-dark-blue;
+		color: #FFFFFF;
+		font-size: 11px;
+
+		.room-guest {
+			white-space: nowrap;
+		}
+
+		a:hover, a:focus {
+			text-decoration: none;
+			outline: none;
+		}
+
+    .location {
+      display: block;
+      width: 100%;
+    }
+
+		.bw-edit-font {
+			float: right;
+			color: #FFFFFF;
+			margin-top: 5px;
+		}
+
+		div {
+			padding-top: 5px;
+		}
+	}
+}
+
+.discounts-code-input {
+	margin-left: 20px;
+}
+
+.menu-open {
+	overflow: hidden;
+}
+
+.user-profile {
+	padding: 20px 20px 20px 80px;
+	position: relative;
+
+	img {
+		position: absolute;
+		left: 15px;
+		top: 20px;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+	}
+}
+
+#left-menu {
+	z-index: @zIndex-3--left-menu;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	max-width: @screen-sm;
+	height: 100%;
+	transition: left 1s ease;
+
+	#menu-list {
+		position: relative;
+		background-color: #FFFFFF;
+		color: @primary-color;
+		width: auto;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		.menu-logged-in {
+			font-weight: @font-light;
+			h1 {
+				font-size: 25px;
+				margin: 0;
+				font-weight: @font-light;
+			}
+
+			h2 {
+				font-size: 18px;
+				margin: 0;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		#menu-user-profile {
+			background-color: @bw-light-blue;
+			color: #FFFFFF;
+		}
+
+		#upcoming-reservation {
+			display: block;
+			background-color: @bw-lighter-blue;
+			color: @bw-light-blue;
+			padding: 10px 15px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		#login-button {
+			a {
+				outline: none;
+				padding: 20px 0;
+			}
+		}
+
+		.menu-items {
+			padding: 15px;
+			width: 100%;
+			position: absolute;
+			a {
+				display: block;
+				padding: 10px 0;
+				font-size: 18px;
+				font-weight: @font-regular;
+
+				&:hover, &:focus {
+					color: @primary-color;
+					text-decoration: none;
+				}
+
+				.glyphicon {
+					float: right;
+					vertical-align: middle;
+				}
+			}
+			h4 {
+				margin: 10px 0 0 0;
+				color: @bw-medium-gray;
+				text-transform: uppercase;
+				text-align: center;
+			}
+			.main-menu-back, .main-menu-back:hover {
+				color: @bw-medium-gray;
+				border-bottom: 1px solid @bw-medium-gray;
+				margin-bottom: 10px;
+			}
+			.main-menu-back .glyphicon {
+				float: none;
+			}
+			margin-bottom: 10px;
+		}
+
+		#main-menu {
+			transition: left 1s ease;
+			left: 0;
+			&.hide-me {
+				left: -100%;
+			}
+		}
+		#rewards-menu, 
+		#settings-menu, 
+		#account-menu {
+			transition: right 1s ease;
+			right: 0;
+			&.hide-me {
+				right: -100%;
+			}
+		}
+	}
+	#menu-overlay {
+		background-color: rgba(3,16,84,0.9);
+		color: #FFFFFF;
+		width: 30px;
+		height: 100%;
+		float: right;
+		position: relative;
+
+		#menu-close-button {
+			position: absolute;
+			top: 5px;
+			left: 0;
+			font-size: 25px;
+			height: 30px;
+			width: 30px;
+			line-height: 1;
+			border: none;
+			background: transparent;
+			padding: 0;
+			outline: none;
+		}
+	}
+
+	&.hide-me {
+		left: -100%;
+	}
+}
+
+#blur {
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: @zIndex-2--left-menu-background-blur;
+	background-color: fade(@bw-dark-blue, 80);
+	transition: opacity 1s linear;
+}
+
+#blur.invisible {
+	opacity: 0;
+	transition: visibility 0s 1s, opacity 1s linear;
+}
+.bw-bottom-bar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: fade(@bw-darker-blue, 95);
+	border-top: 1px solid fade(@bw-white, 30);
+	padding-bottom: 25px;
+	padding-top: 10px;
+	text-align: center;
+  	height: @footer-height;
+  	z-index: @zIndex-0--bottom-bar;
+
+  &.single-button {
+	  padding-left: 25px;
+	  padding-right: 25px;
+      button {
+		border: 0;
+        width: 100%;
+        height: 100%;
+		font-weight: @font-bold;
+		background-color: @bw-gold;
+      }
+    }
+	
+	a {
+	  background-color: @bw-gold;
+	  display: block;
+	  height: 100%;
+	  padding-top: 18px;
+	  text-decoration: none;
+
+	  .bw-icon {
+	    vertical-align: middle;
+	  }
+	}
+
+	a:not(:last-child) {
+      border-right: thin solid @maplist-bottom-navbar-separator-color;
+	}
+
+	//apply to active <a> in footer based on page
+	//also remember to swap out blue icon for white
+	.active {
+		background-color: @bottom-bar-selected;
+		color: #FFFFFF;
+	}
+}

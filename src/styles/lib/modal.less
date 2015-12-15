@@ -1,0 +1,77 @@
+@import (reference) "lib/variables";
+@import (reference) "lib/mixins";
+
+.bw-modal-content {
+  &:extend(.modal-content);
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.modal-dialog,
+.bw-modal-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.modal-body {
+  position: absolute;
+  top: 50px;
+  bottom: 65px;
+  left: 0;
+  right: 0;
+  background-color: #FFF;
+  overflow-y: auto;
+}
+.bw-modal-footer {
+  border-top: thin solid @modal-footer-border-color;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFF;
+}
+.bw-modal-header {
+  &:extend(.modal-header);
+  color: #FFF;
+  background-color: @modal-header-background-color;
+  border: none;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.bw-modal-subheader {
+  height: 20px;
+}
+.bw-modal-content .bw-modal-subheader {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+}
+.bw-modal-subheader + .modal-body {
+  top: 70px;
+}
+
+.bw-modal-footer {
+  height: 65px;
+}
+.bw-modal-footer button {
+  width: 100%;
+}
+.bw-modal-subheader {
+  padding-left: @modal-title-padding;
+  &.success {
+    background-color: @modal-success-background-color;
+    color: @modal-success-color;
+  }
+  &.failure{
+    background-color: @modal-failure-background-color;
+    color: @modal-failure-color;
+  }
+}

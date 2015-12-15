@@ -1,0 +1,23 @@
+@import (reference) "lib/variables";
+@import (reference) "lib/mixins";
+
+.full-width-buttons .btn {
+  width: 100%;
+}
+.bw-btn-accept {
+  .button-variant(@button-accept-color; @button-accept-background-color; @button-accept-border-color);
+  border-radius: 0;
+}
+.bw-btn-cancel {
+  .button-variant(@button-cancel-color; @button-cancel-background-color; @button-cancel-border-color);
+  border-radius: 0;
+}
+
+.bw-btn-clear {
+  .button-variant(@bw-dark-blue; transparent; @bw-gold);
+  border-radius: 0;
+}
+
+.bw-btn-clear--blue:extend(.bw-btn-clear) {
+  border-color: @bw-dark-blue;
+}

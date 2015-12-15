@@ -1,0 +1,179 @@
+@import (reference) "lib/variables";
+
+.card, .card-image {
+  height: 100px;
+  @media screen and (min-width: @screen-sm) {
+    height: 130px;
+  }
+}
+
+.card {
+  color: @maplist-primary-color;
+  border: 1px solid @bw-light-gray;
+  cursor: pointer;
+}
+.card--compare {
+  border: none;
+  cursor: default;
+}
+
+.card--small {
+  height: 100px;
+}
+
+.card--large {
+  height: 130px;
+  @media screen and (min-width: @screen-sm) {
+    height: 150px;
+  }
+}
+
+.card-image {
+  background-image: url(../images/bw1.jpg);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.card-body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: @font-bold;
+  height: 100%;
+}
+
+.card-indicator {
+  width: 50px;
+  height: 5px;
+  margin: 5px 0;
+}
+
+.card-indicator--standard {
+  background-color: @maplist-hotel-indicator-standard;
+}
+
+.card-indicator--plus {
+  background-color: @maplist-hotel-indicator-plus;
+}
+
+.card-indicator--premier {
+  background-color: @maplist-hotel-indicator-premier;
+}
+
+.card-name {
+  font-weight: @font-bold;
+  font-size: 11px;
+  margin-bottom: 0;
+  @media screen and (min-width: @screen-sm) {
+    font-size: 13px;
+  }
+}
+
+.card-location--large {
+  font-size: 20px;
+  @media screen and (min-width: @screen-sm) {
+    font-size: 25px;
+  }
+}
+
+.card-location {
+  display: block;
+  font-weight: @font-light;
+  font-size: 18px;
+  overflow: hidden;
+  @media screen and (min-width: @screen-sm) {
+    font-size: 25px;
+  }
+}
+
+.card-distance {
+  position: absolute;
+  left: 15px;
+  bottom: 3px;
+  @media screen and (min-width: @screen-sm-min) {
+    bottom: 5px;
+  }
+}
+
+.card-rating {
+  display: block;
+  width: 100%;
+}
+
+.card-rating-number {
+  font-size: 13px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -3px;
+  @media screen and (min-width: @screen-sm-min) {
+    margin-top: 2px;
+  }
+}
+.card-currency {
+  position: absolute;
+  right: 15px;
+  bottom: 22px;
+  font-size: 11px;
+  @media screen and (min-width: @screen-sm-min) {
+    font-size: 13px;
+    bottom: 27px;
+  }
+}
+.card-currency--compare {
+  float: right;
+  line-height: 1;
+  font-weight: @font-bold;
+  font-size: 25px;
+}
+.card-price {
+  position:absolute;
+  right: 15px;
+  bottom: 0px;
+  font-weight: @font-bold;
+  font-size: 20px;
+  @media screen and (min-width: @screen-sm-min) {
+    font-size: 25px;
+  }
+}
+.card-tripadvisor {
+  position:absolute;
+  left: 15px;
+  bottom: 18px;
+  @media screen and (min-width: @screen-sm-min) {
+    bottom: 20px;
+  }
+}
+
+.card-tripadvisor-logo {
+  width: 24px;
+  height: 15px;
+  margin-left: 0;
+  @media screen and (min-width: @screen-sm-min) {
+    width: 30px;
+    height: 18px;
+    margin-left: 0;
+  }
+}
+
+.card-tripadvisor-rating {
+  width: 12px;
+  height: 12px;
+  margin-left: 0px;
+  @media screen and (min-width: @screen-sm-min) {
+    width: 15px;
+    height: 15px;
+    margin-left: -2px;
+  }
+}
+
+.card-icon-marker {
+  text-align: center;
+  line-height: 100px;
+  @media screen and (min-width: @screen-sm) {
+    line-height: 130px;
+  }
+  //TODO: I put the svg selector here for the time being as the svg we are trying to manipulate may not
+  //have specific classes attached to it in the future. Revisit this later.
+  & > svg {
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html class="full-height">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Map List</title>
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link rel="stylesheet" href="../styles/main.css">
+  </head>
+  <body class="has-results-nav has-fixed-footer" data-view="map-view">
+    <span class="js-detector">
+    <span data-breakpoint="xs" class="visible-xs"></span>
+    <span data-breakpoint="sm" class="visible-sm"></span>
+    <span data-breakpoint="md" class="visible-md visible-lg"></span>
+    </span>
+    <!-- <div id="header"></div> -->
+    <nav class="bw-navbar navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="nav-left">
+          <a href="findahotel.html"><span class="bw-icon bw-icon-logo"></span></a>
+        </div>
+        <div class="nav-left">
+          <button class="burger" type="button" data-toggle="collapse" data-target="">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          </button>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="visible-xs" data-toggle="modal" data-target="#bw-filter"><span class="bw-icon bw-icon-filter"></span></a>
+          <a href="#" class="hidden-xs" data-toggle="popover-x" data-target="#bw-filter-popover" data-placement="bottom bottom-right"><span class="bw-icon bw-icon-filter"></span></a>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="visible-xs" data-toggle="modal" data-target="#bw-discounts-modal">
+          RATES&nbsp;<span class="bw-icon bw-icon-arrow"></span></a>
+          <a href="#" class="hidden-xs" data-toggle="popover-x" data-target="#bw-discounts-popover" data-placement="bottom bottom-right">
+          RATES&nbsp;<span class="bw-icon bw-icon-arrow"></span></a>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="visible-xs" data-toggle="modal" data-target="#bw-currency-modal">
+          CURRENCY&nbsp;<span class="bw-icon bw-icon-arrow"></span></a>
+          <a href="#" class="hidden-xs" data-toggle="popover-x" data-target="#bw-currency-popover" data-placement="bottom bottom-right">
+          CURRENCY&nbsp;<span class="bw-icon bw-icon-arrow"></span></a>
+        </div>
+      </div>
+      <div class="bw-city-tab">
+        <div class="col-xs-9"><span class="location u-ellipsis">Columbus, OH</span><span class="room-guest">April 9-12, 2015&nbsp; &nbsp;1 Room, 2 Guests</span></div>
+        <div class= "col-xs-3"><a href="#" data-toggle="modal" data-target="#bw-edit" class="bw-edit-font">EDIT</a></div>
+      </div>
+    </nav>
+    <div class="popover popover-md popover-static popover-primary" id="bw-filter-popover">
+      <div class="arrow"></div>
+      <div class="popover-title"><span class="close" data-dismiss="popover-x">&times;</span>SORT &amp; FILTER</div>
+      <div class="bw-popover-subheader success">You have <strong>16 results</strong> available</div>
+      <div class="popover-content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bw-separator">
+              <label> Only show available hotels</label>
+              <span class="image-checkbox" data-bw-category="available-hotels">
+              <input type="checkbox" id="popover-available-hotels" name="popover-available-hotels" />
+              <label for="popover-available-hotels" class="bw-icon pull-right"></label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <div class="form-group">
+              SORT BY
+              <select class="form-control">
+                <option>Distance</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              MAXIMUM DAILY RATE
+              <span class="dollar-sign">&#36;</span><input type="number" class="form-control text-right u-no-spinner" min="0" max="9999" step="0.01" placeholder="0.00"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label>TRIPADVISOR RATING</label>
+              <div class="row no-pad full-width">
+                <div class="col-xs-2-5">
+                  <div class="image-checkbox" data-bw-category="tripadvisor-1">
+                    <input type="checkbox" id="tripadvisor-1" name="tripadvisor-1" />
+                    <label for="tripadvisor-1" class="bw-icon"></label>
+                  </div>
+                </div>
+                <div class="col-xs-2-5">
+                  <div class="image-checkbox" data-bw-category="tripadvisor-2">
+                    <input type="checkbox" id="tripadvisor-2" name="tripadvisor-2" />
+                    <label for="tripadvisor-2" class="bw-icon"></label>
+                  </div>
+                </div>
+                <div class="col-xs-2-5">
+                  <div class="image-checkbox" data-bw-category="tripadvisor-3">
+                    <input type="checkbox" id="tripadvisor-3" name="tripadvisor-3" />
+                    <label for="tripadvisor-3" class="bw-icon"></label>
+                  </div>
+                </div>
+                <div class="col-xs-2-5">
+                  <div class="image-checkbox" data-bw-category="tripadvisor-4">
+                    <input type="checkbox" id="tripadvisor-4" name="tripadvisor-4" />
+                    <label for="tripadvisor-4" class="bw-icon"></label>
+                  </div>
+                </div>
+                <div class="col-xs-2-5">
+                  <div class="image-checkbox" data-bw-category="tripadvisor-5">
+                    <input type="checkbox" id="tripadvisor-5" name="tripadvisor-5" />
+                    <label for="tripadvisor-5" class="bw-icon"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bw-accordion bw-accordion-primary" data-toggle="collapse" data-target="#bw-hotel-type">
+              HOTEL TYPE
+              <span class="glyphicon glyphicon-menu-up pull-right"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row collapse in" id="bw-hotel-type">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-4">
+                <img id="bw-standard-hotel-popover-img" class="bw-icon-logo-blue" src="icons/Best Western@3x.png" alt="Best Western Logo Blue"/>
+              </div>
+              <div class="col-xs-4">
+                <img id="bw-plus-hotel-popover-img" class="bw-icon-plus-logo-brown" src="icons/Plus Brown@3x.png" alt="Best Western Plus Logo"/>
+              </div>
+              <div class="col-xs-4">
+                <img id="bw-premier-hotel-popover-img" class="bw-icon-premier-logo-brown" src="icons/Premier Brown@3x.png" alt="Best Western Premier Logo"/>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-xs-4">
+                <span class="image-checkbox" data-bw-category="hotel-type-standard">
+                <input type="checkbox" id="hotel-type-standard" name="hotel-type-standard" />
+                <label for="hotel-type-standard" class="bw-icon"></label>
+                </span>
+              </div>
+              <div class="col-xs-4">
+                <span class="image-checkbox" data-bw-category="hotel-type-plus">
+                <input type="checkbox" id="hotel-type-plus" name="hotel-type-plus" />
+                <label for="hotel-type-plus" class="bw-icon"></label>
+                </span>
+              </div>
+              <div class="col-xs-4">
+                <span class="image-checkbox" data-bw-category="hotel-type-premier">
+                <input type="checkbox" id="hotel-type-premier" name="hotel-type-premier" />
+                <label for="hotel-type-premier" class="bw-icon"></label>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <div class="bw-accordion bw-accordion-primary" data-toggle="collapse" data-target="#bw-amenities">
+              AMENITIES
+              <span class="glyphicon glyphicon-menu-up pull-right"></span>
+            </div>
+          </div>
+        </div>
+        <div class="collapse in bw-amenities-container" id="bw-amenities">
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-breakfast">
+              <input type="checkbox" id="amenity-breakfast" name="amenity-breakfast" />
+              <label for="amenity-breakfast" class="bw-icon"></label>
+            </p>
+            <p class="description">Free Breakfast</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-business">
+              <input type="checkbox" id="amenity-business" name="amenity-business" />
+              <label for="amenity-business" class="bw-icon"></label>
+            </p>
+            <p class="description">Business Center</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-dine-in">
+              <input type="checkbox" id="amenity-dine-in" name="amenity-dine-in" />
+              <label for="amenity-dine-in" class="bw-icon"></label>
+            </p>
+            <p class="description">Dine In</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-internet">
+              <input type="checkbox" id="amenity-internet" name="amenity-internet" />
+              <label for="amenity-internet" class="bw-icon"></label>
+            </p>
+            <p class="description">High-<wbr>Speed Internet</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-fitness">
+              <input type="checkbox" id="amenity-fitness" name="amenity-fitness" />
+              <label for="amenity-fitness" class="bw-icon"></label>
+            </p>
+            <p class="description">Fitness</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-pet">
+              <input type="checkbox" id="amenity-pet" name="amenity-pet" />
+              <label for="amenity-pet" class="bw-icon"></label>
+            </p>
+            <p class="description">Pet Friendly</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-non-smoking">
+              <input type="checkbox" id="amenity-non-smoking" name="amenity-non-smoking" />
+              <label for="amenity-non-smoking" class="bw-icon"></label>
+            </p>
+            <p class="description">Non-<wbr>Smoking</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-oversized">
+              <input type="checkbox" id="amenity-oversized" name="amenity-oversized" />
+              <label for="amenity-oversized" class="bw-icon"></label>
+            </p>
+            <p class="description">Oversized Parking</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-parking">
+              <input type="checkbox" id="amenity-parking" name="amenity-parking" />
+              <label for="amenity-parking" class="bw-icon"></label>
+            </p>
+            <p class="description">Parking</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-pool">
+              <input type="checkbox" id="amenity-pool" name="amenity-pool" />
+              <label for="amenity-pool" class="bw-icon"></label>
+            </p>
+            <p class="description">Pool</p>
+          </div>
+          <div class="bw-amenity-item">
+            <p class="image-checkbox" data-bw-category="amenity-shuttle">
+              <input type="checkbox" id="amenity-shuttle" name="amenity-shuttle" />
+              <label for="amenity-shuttle" class="bw-icon"></label>
+            </p>
+            <p class="description">Airport Shuttle</p>
+          </div>
+        </div>
+        <small>&ast; Fees may apply to pet friendly rooms based on weight and number of pets</small>
+        <p class="buffer-top bw-text-link">Clear All Filters</p>
+      </div>
+      <div class="popover-footer full-width-buttons">
+        <div class="row">
+          <div class="col-xs-6">
+            <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+          </div>
+          <div class="col-xs-6">
+            <button class="btn bw-btn-accept">APPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal bw-filter-modal" id="bw-filter">
+      <div class="modal-dialog modal-static">
+        <div class="bw-modal-content">
+          <div class="bw-modal-header">
+            Sort &amp; Filter
+          </div>
+          <div class="bw-modal-subheader failure">
+            You have <strong>0 results</strong> available
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="bw-separator">
+                  <label> Only show available hotels</label>
+                  <span class="image-checkbox" data-bw-category="available-hotels">
+                  <input type="checkbox" id="modal-available-hotels" name="modal-available-hotels" />
+                  <label for="modal-available-hotels" class="bw-icon pull-right"></label>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row top-buffer">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  SORT BY
+                  <select class="form-control">
+                    <option>Distance</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  MAXIMUM DAILY RATE
+                 <span class="dollar-sign">&#36;</span><input type="number" class="form-control text-right u-no-spinner" min="0" max="9999" step="0.01" placeholder="0.00"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>TRIPADVISOR RATING</label>
+                  <div class="row no-pad full-width">
+                    <div class="col-xs-2-5">
+                      <div class="image-checkbox" data-bw-category="tripadvisor-1">
+                        <input type="checkbox" id="modal-tripadvisor-1" name="tripadvisor-1" />
+                        <label for="modal-tripadvisor-1" class="bw-icon"></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2-5">
+                      <div class="image-checkbox" data-bw-category="tripadvisor-2">
+                        <input type="checkbox" id="modal-tripadvisor-2" name="tripadvisor-2" />
+                        <label for="modal-tripadvisor-2" class="bw-icon"></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2-5">
+                      <div class="image-checkbox" data-bw-category="tripadvisor-3">
+                        <input type="checkbox" id="modal-tripadvisor-3" name="tripadvisor-3" />
+                        <label for="modal-tripadvisor-3" class="bw-icon"></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2-5">
+                      <div class="image-checkbox" data-bw-category="tripadvisor-4">
+                        <input type="checkbox" id="modal-tripadvisor-4" name="tripadvisor-4" />
+                        <label for="modal-tripadvisor-4" class="bw-icon"></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2-5">
+                      <div class="image-checkbox" data-bw-category="tripadvisor-5">
+                        <input type="checkbox" id="modal-tripadvisor-5" name="tripadvisor-5" />
+                        <label for="modal-tripadvisor-5" class="bw-icon"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="bw-accordion bw-accordion-primary" data-toggle="collapse" data-target="#modal-bw-hotel-type">
+                  HOTEL TYPE
+                  <span class="glyphicon glyphicon-menu-up pull-right"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row collapse in" id="modal-bw-hotel-type">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <img id="bw-standard-hotel-modal-img" class="bw-icon-logo-blue" src="icons/Best Western@3x.png" alt="Best Western Logo Blue"/>
+                  </div>
+                  <div class="col-xs-4">
+                    <img id="bw-plus-hotel-modal-img" class="bw-icon-plus-logo-brown" src="icons/Plus Brown@3x.png" alt="Best Western Plus Logo"/>
+                  </div>
+                  <div class="col-xs-4">
+                    <img id="bw-premier-hotel-modal-img" class="bw-icon-premier-logo-brown" src="icons/Premier Brown@3x.png" alt="Best Western Premier Logo"/>
+                  </div>
+                </div>
+                <div class="row text-center">
+                  <div class="col-xs-4">
+                    <span class="image-checkbox" data-bw-category="hotel-type-standard">
+                    <input type="checkbox" id="modal-hotel-type-standard" name="modal-hotel-type-standard" />
+                    <label for="modal-hotel-type-standard" class="bw-icon"></label>
+                    </span>
+                  </div>
+                  <div class="col-xs-4">
+                    <span class="image-checkbox" data-bw-category="hotel-type-plus">
+                    <input type="checkbox" id="modal-hotel-type-plus" name="modal-hotel-type-plus" />
+                    <label for="modal-hotel-type-plus" class="bw-icon"></label>
+                    </span>
+                  </div>
+                  <div class="col-xs-4">
+                    <span class="image-checkbox" data-bw-category="hotel-type-premier">
+                    <input type="checkbox" id="modal-hotel-type-premier" name="modal-hotel-type-premier" />
+                    <label for="modal-hotel-type-premier" class="bw-icon"></label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row top-buffer">
+              <div class="col-xs-12">
+                <div class="bw-accordion bw-accordion-primary" data-toggle="collapse" data-target="#modal-bw-amenities">
+                  AMENITIES
+                  <span class="glyphicon glyphicon-menu-up pull-right"></span>
+                </div>
+              </div>
+            </div>
+            <div class="collapse in bw-amenities-container" id="modal-bw-amenities">
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-breakfast">
+                  <input type="checkbox" id="modal-amenity-breakfast" name="modal-amenity-breakfast" />
+                  <label for="modal-amenity-breakfast" class="bw-icon"></label>
+                </p>
+                <p class="description">Free Breakfast</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-business">
+                  <input type="checkbox" id="modal-amenity-business" name="modal-amenity-business" />
+                  <label for="modal-amenity-business" class="bw-icon"></label>
+                </p>
+                <p class="description">Business Center</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-dine-in">
+                  <input type="checkbox" id="modal-amenity-dine-in" name="modal-amenity-dine-in" />
+                  <label for="modal-amenity-dine-in" class="bw-icon"></label>
+                </p>
+                <p class="description">Dine In</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-internet">
+                  <input type="checkbox" id="modal-amenity-internet" name="modal-amenity-internet" />
+                  <label for="modal-amenity-internet" class="bw-icon"></label>
+                </p>
+                <p class="description">High-<wbr>Speed Internet</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-fitness">
+                  <input type="checkbox" id="modal-amenity-fitness" name="modal-amenity-fitness" />
+                  <label for="modal-amenity-fitness" class="bw-icon"></label>
+                </p>
+                <p class="description">Fitness</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-pet">
+                  <input type="checkbox" id="modal-amenity-pet" name="modal-amenity-pet" />
+                  <label for="modal-amenity-pet" class="bw-icon"></label>
+                </p>
+                <p class="description">Pet Friendly</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-non-smoking">
+                  <input type="checkbox" id="modal-amenity-non-smoking" name="modal-amenity-non-smoking" />
+                  <label for="modal-amenity-non-smoking" class="bw-icon"></label>
+                </p>
+                <p class="description">Non-<wbr>Smoking</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-oversized">
+                  <input type="checkbox" id="modal-amenity-oversized" name="modal-amenity-oversized" />
+                  <label for="modal-amenity-oversized" class="bw-icon"></label>
+                </p>
+                <p class="description">Oversized Parking</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-parking">
+                  <input type="checkbox" id="modal-amenity-parking" name="modal-amenity-parking" />
+                  <label for="modal-amenity-parking" class="bw-icon"></label>
+                </p>
+                <p class="description">Parking</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-pool">
+                  <input type="checkbox" id="modal-amenity-pool" name="modal-amenity-pool" />
+                  <label for="modal-amenity-pool" class="bw-icon"></label>
+                </p>
+                <p class="description">Pool</p>
+              </div>
+              <div class="bw-amenity-item">
+                <p class="image-checkbox" data-bw-category="amenity-shuttle">
+                  <input type="checkbox" id="modal-amenity-shuttle" name="modal-amenity-shuttle" />
+                  <label for="modal-amenity-shuttle" class="bw-icon"></label>
+                </p>
+                <p class="description">Airport Shuttle</p>
+              </div>
+            </div>
+            <small>&ast; Fees may apply to pet friendly rooms based on weight and number of pets</small>
+            <p class="buffer-top bw-text-link">Clear All Filters</p>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn bw-btn-accept">APPLY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bw-calendar">
+      <div class="modal-dialog modal-lg modal-static">
+        <div class="bw-modal-content">
+          <div class="bw-modal-header">
+            Only tap the first and last day of your stay.
+          </div>
+          <div class="modal-body">
+            <div class="bw-calendar-container">
+            </div>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="bw-stay-nights-mobile visible-xs">
+              <span class="bw-stay-nights"></span>
+            </div>
+            <div class="row">
+              <div class="hidden-xs col-sm-4">
+                <span class="pull-left bw-stay-nights"></span>
+              </div>
+              <div class="col-xs-6 col-sm-4">
+                <button class="btn bw-btn-cancel" id="bw-calendar-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6 col-sm-4">
+                <button class="btn bw-btn-accept" id="bw-calendar-done">APPLY</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bw-login" aria-hidden="false">
+      <div class="modal-dialog">
+        <div class="bw-modal-content">
+          <div class="bw-modal-header">
+            BWR LOGON
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <div class="col-sm-2"> <label for="username">Username:</label></div>
+                <div class="col-sm-10"><input id="username" type="text" class="form-control"/></div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2"> <label for="password">Password:</label></div>
+                <div class="col-sm-10"><input id="password" type="text" class="form-control"/></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn bw-btn-accept">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bw-edit">
+      <div class="modal-dialog modal-static">
+        <div class="bw-modal-content">
+          <div class="modal-body bw-find-hotel-dark">
+            <div class="row">
+      <div class="col-xs-12">
+        <label class="bw-label">DESTINATION</label>
+        <div class="favorites-search js-autocomplete">
+          <div class="dropdown js-dropdown">
+            <div class="dropdown-toggle js-dropdown-toggle" id="dropdownMenuFavorites" data-toggle="dropdown" aria-expanded="false">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Current Location" id="places-search" />
+                <div class="input-group-addon">
+                  <div class="fav-icon fav-remove js-remove hidden">
+                    <button type="button" class="js-clear" id="destination-clear-button">&times;</button>
+                  </div>
+                  <div class="fav-icon fav-icon-unfilled js-logged-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 41 37">
+                      <path d="M19.940,37.137 C19.940,37.137 18.889,36.103 18.889,36.103 C17.187,34.427 15.377,32.785 13.626,31.197 C10.319,28.197 6.897,25.095 3.954,21.545 C1.435,18.510 0.106,15.117 0.004,11.461 C-0.118,7.187 3.067,2.510 7.251,0.815 C11.409,-0.874 16.415,0.318 19.617,3.746 C19.779,3.921 19.938,4.098 20.093,4.280 C20.413,3.915 20.750,3.553 21.121,3.210 C23.344,1.149 26.112,0.014 28.914,0.014 C33.368,0.014 37.341,2.770 39.284,7.207 C40.871,10.833 40.468,14.654 38.054,18.888 C36.186,22.170 33.493,24.705 30.890,27.156 C28.666,29.250 26.472,31.271 24.280,33.290 C24.280,33.290 21.494,35.859 21.494,35.859 C21.408,35.938 21.323,36.007 21.213,36.095 C21.213,36.095 19.940,37.137 19.940,37.137 ZM11.288,3.251 C10.327,3.251 9.384,3.435 8.486,3.799 C5.522,5.000 3.180,8.397 3.264,11.372 C3.347,14.337 4.396,16.996 6.475,19.500 C9.271,22.873 12.605,25.897 15.830,28.821 C17.233,30.094 18.676,31.401 20.081,32.745 C20.081,32.745 22.057,30.931 22.057,30.931 C24.241,28.919 26.426,26.907 28.588,24.872 C31.183,22.428 33.584,20.167 35.214,17.305 C37.120,13.963 37.461,11.161 36.290,8.489 C34.874,5.250 32.047,3.238 28.914,3.238 C26.915,3.238 24.992,4.042 23.350,5.562 C22.887,5.992 22.454,6.504 21.995,7.047 C21.764,7.321 21.532,7.596 21.290,7.868 C21.290,7.868 20.026,9.293 20.026,9.293 C20.026,9.293 18.286,7.191 18.286,7.191 C17.940,6.763 17.596,6.335 17.222,5.934 C15.606,4.204 13.498,3.251 11.288,3.251 Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="fav-icon fav-icon-filled js-logged-in hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 41 37">
+                      <path d="M39.268,7.202 C37.327,2.765 33.353,0.008 28.899,0.008 C26.096,0.008 23.328,1.143 21.104,3.205 C20.734,3.548 20.397,3.910 20.077,4.274 C19.922,4.093 19.765,3.915 19.602,3.741 C16.401,0.314 11.396,-0.878 7.234,0.809 C3.050,2.505 -0.133,7.182 -0.013,11.457 C0.089,15.112 1.418,18.504 3.937,21.542 C6.881,25.091 10.301,28.194 13.608,31.193 C15.360,32.782 17.171,34.424 18.874,36.101 C18.874,36.101 19.920,37.133 19.920,37.133 C19.920,37.133 21.189,36.101 21.189,36.101 C21.306,36.007 21.395,35.934 21.478,35.857 C21.478,35.857 24.258,33.294 24.258,33.294 C26.453,31.272 28.648,29.249 30.866,27.162 C33.472,24.707 36.167,22.170 38.040,18.884 C40.453,14.650 40.855,10.830 39.268,7.202 Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="dropdown-menu hidden js-favorites" role="menu" aria-labelledby="dropdownMenuFavorites">
+              <li role="presentation" class="dropdown-header">FAVORITES</li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Columbus, OH</a>
+              </li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Saratoga Springs, NY</a>
+              </li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Fresno-Yosemite International (FAT)</a>
+              </li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Minneapolis, MN</a>
+              </li>
+            </ul>
+            <ul class="dropdown-menu js-recent" role="menu" aria-labelledby="dropdownMenuFavorites">
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Current Location</a>
+              </li>
+              <li role="presentation" class="dropdown-header">RECENT SEARCHES</li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Phoenix, AZ</a>
+              </li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Austin, TX</a>
+              </li>
+              <li role="presentation">
+                <a class="u-ellipsis" role="menuitem" tabindex="-1" href="#">Minneapolis, MN</a>
+              </li>
+            </ul>
+            <ul class="dropdown-menu places-results js-places-results hidden" role="menu"></ul>
+          </div>
+        </div>
+      </div>
+            </div>
+            <div class="row top-buffer bw-date-range-container">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-sm-6 col-xs-12">
+                    <label class="bw-label visible-xs">
+                    CHECK-IN &amp; CHECK-OUT
+                    </label>
+                    <label class="bw-label hidden-xs">CHECK-IN</label>
+                  </div>
+                  <div class="col-sm-6 hidden-xs">
+                    <label class="bw-label">
+                    CHECK-OUT
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 bw-stay-dates-container outer-padding-top" data-toggle="modal" data-target="#bw-calendar">
+                    <div class="bw-stay-dates"  id="bw-stay-start-date">
+                      <span class="bw-day-label">TUESDAY</span> <br />
+                      <span class="bw-date-label">March 24, 2015</span>
+                    </div>
+                    <div class="bw-stay-dates" id="bw-stay-end-date">
+                      <span class="bw-day-label">WEDNESDAY</span> <br />
+                      <span class="bw-date-label">March 25, 2015</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p class="bw-date-range-footer" id="bw-stay-nights">
+                      1 Night
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="row top-buffer">
+            <div class="form-group col-xs-12">
+              <label class="bw-label">
+              ROOMS
+              </label>
+              <div class="outer-padding-top">
+                <div class="row">
+                  <div id="room-1" class="col-sm-4">
+                    <div class="room-box">
+                      <div class="room-header">
+                        <div class="header-text">ROOM 1</div>
+                      </div>
+                      <div class="container room-body">
+                        <div class="row room-adult">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">1 Adult</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="row room-child">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">0 Children</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="age-selectors">
+                          <div class="row ages-header">
+                            <div class=" col-xs-12">SELECT AGES</div>
+                          </div>
+                          <div class="dropdown">
+                            <div class="row child dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false" role="menu">
+                              <div class="child-header col-xs-12">CHILD 1<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                              <div class="child-age col-xs-12">5 Years Old</div>
+                            </div>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">&lt;1 Year Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1 Year Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">5 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">6 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">7 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">8 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">9 Year Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10 Year Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">11 Year Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">12 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">13 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">14 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">15 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">16 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">17 Years Old</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">18 Years Old</a></li>
+                            </ul>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 2<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 3<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 4<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 5<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="add-a-room-2" class="col-sm-4">
+                    <div class="room-box">
+                      <div class="add-a-room">
+                        <div class="row">
+                          <div class="col-xs-3 visible-xs"></div>
+                          <div class="col-xs-6 add-a-room-text">ADD A ROOM</div>
+                          <div class="col-xs-3 add-a-room-plus">
+                            <span class="visible-xs-inline-block bw-icon bw-icon-small-plus-blue"></span>
+                            <span class="hidden-xs bw-icon bw-icon-big-plus-blue"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="room-2" class="col-sm-4 hidden">
+                    <div class="room-box">
+                      <div class="room-header">
+                        <div class="header-text"><span id="close-room-2" class="close-box">X</span>ROOM 2</div>
+                      </div>
+                      <div class="container room-body">
+                        <div class="row room-adult">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">1 Adult</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="row room-child">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">0 Children</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="age-selectors">
+                          <div class="row ages-header">
+                            <div class=" col-xs-12">SELECT AGES</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 1<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 2<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 3<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 4<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 5<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="add-a-room-3" class="col-sm-4">
+                    <div class="room-box">
+                      <div class="add-a-room">
+                        <div class="row">
+                          <div class="col-xs-3 visible-xs"></div>
+                          <div class="col-xs-6 add-a-room-text">ADD A ROOM</div>
+                          <div class="col-xs-3 add-a-room-plus">
+                            <span class="visible-xs-inline-block bw-icon bw-icon-small-plus-blue"></span>
+                            <span class="hidden-xs bw-icon bw-icon-big-plus-blue"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="room-3" class="col-sm-4 hidden">
+                    <div class="room-box">
+                      <div class="room-header">
+                        <div class="header-text"><span id="close-room-3" class="close-box">X</span>ROOM 3</div>
+                      </div>
+                      <div class="container room-body">
+                        <div class="row room-adult">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button" disabled>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">1 Adult</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="row room-child">
+                          <div class="col-xs-3 body-icon-minus">
+                            <button class="room-button" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M8.392,17.589 C8.392,17.589 23.607,17.589 23.607,17.589 C23.607,17.589 23.607,14.411 23.607,14.411 C23.607,14.411 8.392,14.411 8.392,14.411 C8.392,14.411 8.392,17.589 8.392,17.589 ZM16.000,0.000 C7.177,0.000 -0.000,7.177 -0.000,16.000 C-0.000,24.822 7.177,32.000 16.000,32.000 C24.823,32.000 32.000,24.822 32.000,16.000 C32.000,7.177 24.823,0.000 16.000,0.000 ZM16.000,28.822 C8.930,28.822 3.178,23.070 3.178,16.000 C3.178,8.930 8.930,3.178 16.000,3.178 C23.070,3.178 28.822,8.930 28.822,16.000 C28.822,23.070 23.070,28.822 16.000,28.822 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col-xs-6 body-text">0 Children</div>
+                          <div class="col-xs-3 body-icon-plus">
+                            <button type="button" class="room-button" disabled>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="32" viewBox="0 0 32 32">
+                                <path d="M16.000,32.000 C7.177,32.000 0.000,24.822 0.000,16.000 C0.000,7.177 7.177,0.000 16.000,0.000 C24.823,0.000 32.000,7.177 32.000,16.000 C32.000,24.822 24.823,32.000 16.000,32.000 ZM16.000,3.178 C8.930,3.178 3.178,8.930 3.178,16.000 C3.178,23.070 8.930,28.822 16.000,28.822 C23.070,28.822 28.822,23.070 28.822,16.000 C28.822,8.930 23.070,3.178 16.000,3.178 ZM17.589,23.607 C17.589,23.607 14.411,23.607 14.411,23.607 C14.411,23.607 14.411,17.589 14.411,17.589 C14.411,17.589 8.393,17.589 8.393,17.589 C8.393,17.589 8.393,14.411 8.393,14.411 C8.393,14.411 14.411,14.411 14.411,14.411 C14.411,14.411 14.411,8.393 14.411,8.393 C14.411,8.393 17.589,8.393 17.589,8.393 C17.589,8.393 17.589,14.411 17.589,14.411 C17.589,14.411 23.606,14.411 23.606,14.411 C23.606,14.411 23.606,17.589 23.606,17.589 C23.606,17.589 17.589,17.589 17.589,17.589 C17.589,17.589 17.589,23.607 17.589,23.607 Z" fill-rule="evenodd"/>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="age-selectors">
+                          <div class="row ages-header">
+                            <div class=" col-xs-12">SELECT AGES</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 1<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 2<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 3<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 4<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                          <div class="row child dropdown-toggle">
+                            <div class="child-header col-xs-12">CHILD 5<span class="bw-icon bw-icon-gray-carrot"></span></div>
+                            <div class="child-age col-xs-12">5 Years Old</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="row">
+                    <a href="#" class="booking-4-plus col-xs-12">
+                    <span class="bw-icon bw-icon-four-plus-blue"></span>&nbsp;
+                    <span class="">BOOKING 4&#43; ROOMS?</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn bw-btn-accept">UPDATE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popover popover-md popover-static popover-primary" id="bw-discounts-popover">
+      <div class="arrow"></div>
+      <div class="popover-title"><span class="close" data-dismiss="popover-x">&times;</span>RATES</div>
+      <div class="popover-content">
+        <div class="col-xs-12">
+          <div class="row bw-separator">
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>AAA/CAA Rate
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>AARP/Senior Rate
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>Best Western Rewards Points
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>Corporate Rate Code
+              </label><br>
+              <input class="discounts-code-input" type="text" name="discount-code" placeholder="code"/>
+            </div>
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>Government/Military Rate
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+              <input type="radio" name="discount"/>Promotion Code
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <p class="top-buffer text-faded little-label">
+              * This rate is available to Best Western Rewards Members who have earned enough points to redeem.
+            </p>
+            <p class="bw-text-link">Remove Rate</p>
+          </div>
+        </div>
+      </div>
+      <div class="popover-footer full-width-buttons">
+        <div class="row">
+          <div class="col-xs-6">
+            <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+          </div>
+          <div class="col-xs-6">
+            <button class="btn bw-btn-accept">APPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bw-discounts-modal">
+      <div class="modal-dialog modal-static">
+        <div class="bw-modal-content">
+          <div class="bw-modal-header">
+            RATES
+          </div>
+          <div class="modal-body">
+            <div class="col-xs-12">
+              <div class="row bw-separator">
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>AAA/CAA Rate
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>AARP/Senior Rate
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>Best Western Rewards Points
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>Corporate Rate Code
+                  </label><br>
+                  <input class="discounts-code-input" type="text" name="discount-code" placeholder="code"/>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>Government/Military Rate
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                  <input type="radio" name="discount"/>Promotion Code
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <p class="top-buffer text-faded little-label">
+                  * This rate is available to Best Western Rewards Members who have earned enough points to redeem.
+                </p>
+                <p class="bw-text-link">Remove Rate</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn bw-btn-accept">DONE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popover popover-md popover-static popover-primary" id="bw-currency-popover">
+      <div class="arrow"></div>
+      <div class="popover-title"><span class="close" data-dismiss="popover-x">&times;</span>CURRENCY</div>
+      <div class="popover-content">
+        <div class="bw-currency">
+          <div class="row">
+            <div class="col-xs-12 currency-item currency-search">
+              <span class="bw-icon bw-icon-search"></span>
+              <input type="text"/>
+            </div>
+            <div class="col-xs-12 currency-item">
+              US Dollars
+            </div>
+            <div class="col-xs-12 currency-item">
+              Euro
+            </div>
+            <div class="col-xs-12 bw-currency-header">
+              OTHER CURRENCIES
+            </div>
+            <div class="col-xs-12 currency-item">
+              Albanian Yek
+            </div>
+            <div class="col-xs-12 currency-item">
+              Algerian Dinar
+            </div>
+            <div class="col-xs-12 currency-item">
+              Argentinian Pesos
+            </div>
+            <div class="col-xs-12 currency-item">
+              Armenian Dram
+            </div>
+            <div class="col-xs-12 currency-item">
+              Arubin Florin
+            </div>
+            <div class="col-xs-12 currency-item">
+              Australia Dollars
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popover-footer full-width-buttons">
+        <div class="row">
+          <div class="col-xs-6">
+            <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+          </div>
+          <div class="col-xs-6">
+            <button class="btn bw-btn-accept">APPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bw-currency-modal">
+      <div class="modal-dialog modal-static">
+        <div class="bw-modal-content">
+          <div class="bw-modal-header">
+            CURRENCY
+          </div>
+          <div class="modal-body">
+            <div class="bw-currency">
+              <div class="row">
+                <div class="col-xs-12 currency-item currency-search">
+                  <span class="bw-icon bw-icon-search"></span>
+                  <input type="text"/>
+                </div>
+                <div class="col-xs-12 currency-item">
+                  US Dollars
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Euro
+                </div>
+                <div class="col-xs-12 bw-currency-header">
+                  OTHER CURRENCIES
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Albanian Yek
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Algerian Dinar
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Argentinian Pesos
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Armenian Dram
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Arubin Florin
+                </div>
+                <div class="col-xs-12 currency-item">
+                  Australia Dollars
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bw-modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button class="btn bw-btn-cancel" data-dismiss="modal">CANCEL</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn bw-btn-accept">DONE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid full-height">
+      <div class="row no-pad slider" data-horizontal="true">
+        <div class="col-md-6 js-top slider-top-section--vertical slider-top-section--with-map">
+          <img src="../assets/icons/window_shade.png" class="js-handle slider-handle slider-handle--vertical hidden-xs" alt="" />
+          <div id="map-canvas"></div>
+        </div>
+        <div class="col-md-6 js-bottom slider-bottom-section--vertical slider-bottom-section--with-map">
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--premier"></div>
+              <p class="card-name">BEST WESTERN PREMIER <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <span class="card-rating-number">&nbsp;(139)</span>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">1</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--plus"></div>
+              <p class="card-name">BEST WESTERN PLUS <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">2</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--standard"></div>
+              <p class="card-name">BEST WESTERN STANDARD <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">3</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--premier"></div>
+              <p class="card-name">BEST WESTERN PREMIER <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <span class="card-rating-number">&nbsp;(139)</span>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">4</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--plus"></div>
+              <p class="card-name">BEST WESTERN PLUS <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">5</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--standard"></div>
+              <p class="card-name">BEST WESTERN STANDARD <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">6</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--premier"></div>
+              <p class="card-name">BEST WESTERN PREMIER <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <span class="card-rating-number">&nbsp;(139)</span>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">7</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--plus"></div>
+              <p class="card-name">BEST WESTERN PLUS <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">8</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="col-sm-2 col-xs-3 card-image">
+            </div>
+            <div class="col-xs-9 col-sm-8 card-body">
+              <div class="card-indicator card-indicator--standard"></div>
+              <p class="card-name">BEST WESTERN STANDARD <br />
+                <span class="card-location u-ellipsis">Franklin Square Inn Troy/New Albany</span>
+              </p>
+              <div class="card-rating">
+                <span class="card-currency">USD</span>
+                <div class="card-tripadvisor">
+                  <span class="bw-icon bw-icon-tripadvisor-logo card-tripadvisor-logo"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-full card-tripadvisor-rating"></span>
+                  <span class="bw-icon bw-icon-tripadvisor-rating-half card-tripadvisor-rating"></span>
+                  <div class="card-rating-number">&nbsp;(134)</div>
+                </div>
+                <span class="card-distance">2.7mi/4.7km</span>
+                <span class="card-price">$89.99</span>
+              </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <div class="card-icon-marker">
+                <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 39.999998 50.000001" width="40" version="1.1" preserveAspectRatio="xMidYMid meet" class="bw-map-pin">
+                  <g transform="matrix(.97501 0 0 .98001 .70032 -981.37)">
+                    <path  d="m15.176 1048.3c-11.221-10.4-16.556-21.2-14.871-29.9 0.88867-4.5934 2.4455-7.37 5.9482-10.615 7.8463-7.2695 19.638-7.2695 27.484 0 10.821 10.025 7.4731 25.221-8.922 40.501-2.3878 2.2272-4.5569 4.0466-4.8201 4.0466-0.26324 0-2.4323-1.8194-4.8201-4.0466z"/>
+                    <circle cy="1021.4" cx="20" r="14.861"/>
+                  </g>
+                  <text  y="25" x="14" font-size="20" font-family="helvetica">9</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyB-45CSiwx_TrwsIQ7oWY-7UpKGTgNs4xA"></script>
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/jquery.mobile.custom.js"></script>
+    <script src="../scripts/autocomplete.js"></script>
+    <script src="../scripts/bootstrap.js"></script>
+    <script src="../scripts/bootstrap-popover-x.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/module-map.js"></script>
+    <script src="../scripts/moment-with-locales.min.js"></script>
+    <script src="../scripts/module-calendar.js"></script>
+    <script src="../scripts/reserve-room.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('#header').load('ResultsHeader.html');
+          $('#footer').load('ResultsFooterBar.html');
+          $('.card').click(function() {
+              window.location.href = "HotelDetails.html";
+          });
+      });
+    </script>
+    <script src="../scripts/google-map.js"></script>
+    <script src="../scripts/map-list.js"></script>
+  </body>
+</html>

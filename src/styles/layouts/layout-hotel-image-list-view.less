@@ -1,0 +1,64 @@
+@import (reference) "lib/variables";
+
+.image-list--with-backdrop {
+  background-color: @bw-dark-blue;
+}
+
+.bw-image-bg {
+  background-size: cover;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  color: @bw-white;
+  .bw-image-text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+
+    .bw-hotel-type {
+      font-size: 11px;
+      font-weight: @font-bold;
+    }
+
+    .bw-name-currency {
+      position: relative;
+
+      .bw-hotel-name {
+        font-size: 25px;
+        margin-bottom: 0;
+        margin-right: 35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .bw-hotel-currency {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        font-size: 11px;
+      }
+    }
+
+    .bw-miles-price {
+      position: relative;
+
+      .bw-hotel-miles {
+        font-size: 13px;
+      }
+
+      .bw-hotel-price {
+        position: absolute;
+        right: 0;
+        top: -10px;
+        font-size: 25px;
+        font-weight: @font-bold;
+      }
+    }
+  }
+}
